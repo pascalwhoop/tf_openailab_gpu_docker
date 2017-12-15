@@ -10,10 +10,10 @@ RUN git clone https://github.com/openai/gym /gym && \
 
 #adding third party dependencies for the OpenAI Gym
 WORKDIR "/tmp"
-RUN  wget https://www.roboti.us/download/mjpro131_linux.zip && \
-	unzip mjpro131_linux.zip && \
+RUN  wget https://www.roboti.us/download/mjpro150_linux.zip && \
+	unzip mjpro150_linux.zip && \
 	mkdir /root/.mujoco && \
-	mv mjpro131 /root/.mujoco/ && \
+	mv mjpro150 /root/.mujoco/ && \
 	rm -rf /tmp/* && \
         pip install 'gym[all]'
 COPY mjkey.txt /root/.mujoco/
