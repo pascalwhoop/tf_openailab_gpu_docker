@@ -86,8 +86,11 @@ run_vnc_server() {
 }
 
 run_jupyter(){
-    jupyter notebook --allow-root &
+	mkdir -p /notebooks
+	cd /notebooks
+	jupyter notebook --ip=0.0.0.0 --allow-root --no-browser &
 }
+
 
 log_i() {
     log "[INFO] ${@}"
