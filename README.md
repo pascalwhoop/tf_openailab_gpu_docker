@@ -24,5 +24,5 @@ Download the cuDNN library files and place them in the same folder as the `build
 ## installation
 
 ```
-cd tf_openaigym_gpu_docker
-./run_docker_tf_openai_gpu.sh
+./build.sh
+```
