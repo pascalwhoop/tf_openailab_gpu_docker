@@ -1,16 +1,18 @@
-FROM nvidia/cuda:8.0-devel
+FROM nvidia/cuda:8.0-runtime
 #TODO upgrade to 9.1 when nvidia drivers are out on apt-get for ubuntu
 #https://github.com/NVIDIA/nvidia-docker/wiki/CUDA#requirements
 LABEL maintainer="Pascal Brokmeier <public@pascalbrokmeier.de>"
 
 # 0 installing CUDA all the way
 WORKDIR /
-COPY cudann.tgz / 
-RUN tar -xzvf /cudann.tgz && \
+COPY cudnn-8.0-linux-x64-v7.tgz /
+RUN tar -xzvf /cudnn-8.0-linux-x64-v7.tgz && \
+	mkdir -p /usr/local/cuda/include && \
+	mkdir -p /usr/local/cuda/lib64 && \
 	cp cuda/include/cudnn.h /usr/local/cuda/include && \
 	cp cuda/lib64/libcudnn* /usr/local/cuda/lib64 && \
-	chmod a+r /usr/local/cuda/include/cudnn.h && \
-	/usr/local/cuda/lib64/libcudnn*
+	ls /usr/local/cuda/include/ && \
+	chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 #Installing Python, Jupyter, Tensorflow, OpenAI Gym
 ###################################################
 # 1. installing python2 and python3
@@ -52,7 +54,9 @@ RUN	pip3 install -e ./
 # and because this is the last apt, let's clean up after ourselves
 RUN apt-get install -y x11vnc xvfb fluxbox wmctrl && \
         apt-get clean && \
-        rm -rf /var/lib/apt/lists/*
+        rm -rf /var/lib/apt/lists/* && \
+		rm -rf /cudnn-8.0-linux-x64-v7.tgz && \
+		rm -rf /cuda/
 
 
 # TensorBoard

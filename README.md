@@ -16,6 +16,11 @@ This image is quiet large. It's because it contains
 
 You just need a machine with Docker, Nvidia-Docker and the nvidia drivers. This might also be a cloud machine, but be careful they cost quiet a bit per hour with a GPU ;-)
 
+Ah and one more thing. Sorry, I can't pack this, as it's protected by NVIDIA lawyer blabla
+Download the cuDNN library files and place them in the same folder as the `build.sh` and `Dockerfile` files.
+
+[Download from here](https://developer.nvidia.com/cudnn) make sure you get the version `cudnn-8.0-linux-x64-v7.tgz`
+
 ## installation
 
 ```
