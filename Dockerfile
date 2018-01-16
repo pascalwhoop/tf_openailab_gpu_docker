@@ -4,10 +4,13 @@ FROM nvidia/cuda:8.0-devel
 LABEL maintainer="Pascal Brokmeier <public@pascalbrokmeier.de>"
 
 # 0 installing CUDA all the way
-RUN apt-get update && \
-	apt-get install wget && \
-	cd / && \
-	wget http://developer2.download.nvidia.com/compute/machine-learning/cudnn/secure/v7.0.5/prod/9.1_20171129/cudnn-9.1-linux-x64-v7.tgz?UddKP02dApNzWOK4JXcflhJz1B1j6YMSPiCNVsyllmIWgZq3po9SNmUIlWURrBgqMuJJB-xWXbB7LDpMiYDau3_ej0qws7AGeCrVvT63UyCePh_MQ93vNiuqx-RHi9lB90j83lPmqx_ZhcG0alHk-HoGJqqsCAS7LP00E2dvRUYKNBz-ACAeRvjoRB5VnhwBd-R8sa_uR6M
+WORKDIR /
+COPY cudann.tgz / 
+RUN tar -xzvf /cudann.tgz && \
+	cp cuda/include/cudnn.h /usr/local/cuda/include && \
+	cp cuda/lib64/libcudnn* /usr/local/cuda/lib64 && \
+	chmod a+r /usr/local/cuda/include/cudnn.h && \
+	/usr/local/cuda/lib64/libcudnn*
 #Installing Python, Jupyter, Tensorflow, OpenAI Gym
 ###################################################
 # 1. installing python2 and python3
