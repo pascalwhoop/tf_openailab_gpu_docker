@@ -24,5 +24,6 @@ Download the cuDNN library files and place them in the same folder as the `build
 ## installation
 
 ```
-./build.sh path/to/your/notebooks #builds and runs the image, binding your path to the container, so you can access them from jupyter
+#builds and runs the image, binding your path to the container, so you can access them from jupyter
+./build.sh path/to/your/notebooks 
 ```
