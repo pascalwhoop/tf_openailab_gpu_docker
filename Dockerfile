@@ -5,13 +5,12 @@ LABEL maintainer="Pascal Brokmeier <public@pascalbrokmeier.de>"
 
 # 0 installing CUDA all the way
 WORKDIR /
-COPY cudnn-8.0-linux-x64-v7.tgz /
-RUN tar -xzvf /cudnn-8.0-linux-x64-v7.tgz && \
+COPY cudnn-8.0-linux-x64-v6.0.tgz /
+RUN tar -xzvf /cudnn-8.0-linux-x64-v6.0.tgz && \
 	mkdir -p /usr/local/cuda/include && \
 	mkdir -p /usr/local/cuda/lib64 && \
 	cp cuda/include/cudnn.h /usr/local/cuda/include && \
 	cp cuda/lib64/libcudnn* /usr/local/cuda/lib64 && \
-	ls /usr/local/cuda/include/ && \
 	chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 #Installing Python, Jupyter, Tensorflow, OpenAI Gym
 ###################################################

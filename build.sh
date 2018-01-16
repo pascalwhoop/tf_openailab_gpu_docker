@@ -1,10 +1,10 @@
 #!/bin/bash
 
 if [ -z $1 ]; 
-		then 
-		echo "Pass path to your Notebooks folder in first parameter like so: '$ ./ build.sh my/path/to/my/knowledge/trove"; 
-		return;
-	fi
+	then 
+	echo "Pass path to your Notebooks folder in first parameter like so: '$ ./ build.sh my/path/to/my/knowledge/trove"; 
+	return;
+fi
   
 NOTEBOOKS_PATH=$1
 nvidia-docker build --tag pascalwhoop/tf-openailab-gpu ./
