@@ -2,7 +2,7 @@
 
 This project hosts a Dockerimage that let's you run TensorFlow code to compete in the OpenAI Gym while staying true to FOSS and not relying on MujoCo. And because we are all beginners here, let's not assume our Python code is perfect from the start --> Jupyter to the rescue
 
-##Size of the image
+## Size of the image
 This image is quiet large. It's because it contains
 
 - CUDA
