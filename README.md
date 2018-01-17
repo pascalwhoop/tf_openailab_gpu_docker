@@ -27,3 +27,12 @@ Download the cuDNN library files and place them in the same folder as the `build
 #builds and runs the image, binding your path to the container, so you can access them from jupyter
 ./build.sh path/to/your/notebooks 
 ```
+
+## Important links
+
+- [Nvidia Docker CUDA base Image](https://gitlab.com/nvidia/cuda)
+- [RoboSchool](https://github.com/openai/roboschool)
+- [Jupyter Docs to Start Notebooks](https://jupyter.readthedocs.io/en/latest/running.html)
+- [SO Answer on how to install cudnn](https://stackoverflow.com/questions/43978832/cuda-nn-path-issues-in-installing-tensorflow-gpu-on-ubuntu-16-04#43994305)
+- [TensorFlow Install instructions](https://www.tensorflow.org/install/install_linux)
+- [Jupyter Docker image (deps stolen from here](https://hub.docker.com/r/jupyter/datascience-notebook/)
